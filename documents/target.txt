@@ -1,0 +1,12 @@
+Mục tiêu:
+    Phân hệ học sinh:
+        - Đăng câu hỏi, xem câu trả lời, xác nhận câu trả lời
+    Phân hệ gia sư:
+        - Nhận câu hỏi, trả lời câu hỏi, báo cáo tình trạng
+    Phân hệ quản trị viên:
+        - Quản lý tài khoản người dùng(cả học sinh và gia sư):
+            + Khoá tài khoản nếu vi phạm quy định
+            + Mở khoá tài khoản
+        - Xử lý thanh toán
+            + Thu tiền từ học sinh
+            + Thanh toán tiền cho gia sư 
