@@ -10,3 +10,22 @@ Mục tiêu:
         - Xử lý thanh toán
             + Thu tiền từ học sinh
             + Thanh toán tiền cho gia sư 
+Models:
+    User: 
+        - Tên
+        - Email
+        - Mật khẩu
+        - Giới tính
+        - Số điện thoại
+        - Ảnh profile
+        - Loại tài khoản
+        - Ngày sinh
+        - Mô tả
+    Question:
+        - Môn(lĩnh vực)
+        - Nội dung
+        - Thời gian
+        - Giá
+        - Hình ảnh
+    
+    
