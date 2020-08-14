@@ -42,21 +42,24 @@ export default function Signup(){
         try {
           const res = await fetch('/api/login', {
             method: 'POST',
-            headers: {
-              Accept: contentType,
-              'Content-Type': contentType,
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(form),
           })
-    
+          const json = await res.json()
+          console.log(res.status)
           // Throw error with status code in case Fetch API req failed
-          if (!res.ok) {
-            throw new Error(res.status)
+          if (res.status==200) {
+            document.cookie = `id=${json.id}; path=/`;
+            document.cookie = `token=${json.token}; path=/`;
+            document.cookie = `name=${json.name}; path=/`;
+          }
+          else{
+            throw new Error("loi dang nhap")
           }
     
-          router.push('/')
+          // router.push('/')
         } catch (error) {
-          setMessage('Failed to add pet')
+          setMessage(error.message)
         }
       }
     

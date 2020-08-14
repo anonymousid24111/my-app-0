@@ -1,6 +1,10 @@
+import jwt from 'jsonwebtoken'
+
 import dbConnect from '../../utils/dbConnect'
 import User from '../../models/user.model'
-export default async function handler(req, res) {
+import auth from '../../utils/auth'
+
+const handler=async (req, res) => {
     const { method } = req
 
     dbConnect()
@@ -14,16 +18,22 @@ export default async function handler(req, res) {
           }
           break
         case 'POST':
-          console.log(req.body)
           try {
+            // console.log(req.cookies)
             const pet =await User.findOne(req.body);
-            res.status(201).json({ success: true, data: pet })
+            if (pet) {
+              var token = jwt.sign({id: pet._id, name: pet.name }, process.env.PRIVATE_KEY);
+              res.status(200).json({token: token, id: pet._id, name: pet.name})
+            } else {
+              res.status(400).json({message: "dang nhap khong thanh cong"})
+            }
           } catch (error) {
-            res.status(400).json({ success: false })
+            res.status(201).json(error)
           }
           break
         default:
-          res.status(400).json({ success: false })
+          res.status(401).json({ message: "loi server" })
           break
       }
     }
+    export default handler   

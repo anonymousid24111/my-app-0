@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.28",
     "next": "9.5.2",
     "react": "16.13.1",
